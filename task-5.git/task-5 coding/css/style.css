@@ -6,7 +6,7 @@
 *** header
 *** main
 ****** visual
-****** main
+****** main-content
 ****** side
 *** footer
 
@@ -34,6 +34,10 @@ body {
 
 header
 ==================================================*/
+header {
+  overflow: hidden;
+}
+
 /* ****** btnarea ****** */
 .btnarea {
   display: flex;
@@ -176,24 +180,210 @@ header
 
 /*==================================================
 
-
+*** main-content
 ==================================================*/
-/* ******  ****** */
-/* ******  ****** */
+.content__container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 52px;
+  overflow: hidden;
+}
+
+.main-content {
+  width: 65%;
+}
+
+/* ****** main-content__article ****** */
+.main-content__article {
+  position: relative;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.main-content__article:not(:first-of-type) {
+  margin-top: 27px;
+}
+
+.main-content__link {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content__link:hover {
+  opacity: 0.7;
+}
+
+/* ****** article__img ****** */
+/* ****** article__detail ****** */
+.article__detail {
+  padding: 20px 25px 29px 30px;
+}
+
+.article__detail__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.article__detail__top > time {
+  color: #645b5b;
+  padding-left: 20px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 38px;
+  background: url(../img/icom-time.png) no-repeat left center/14px 14px;
+}
+
+.categoly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 70px;
+  height: 26px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.4rem;
+  background: #bfa34c;
+}
+
+.article__title {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  list-style: 32px;
+}
+
+/*==================================================
+
+*** side
+==================================================*/
+.side {
+  width: 30%;
+}
+
+/* ****** banner ****** */
+/* ****** sidebar ****** */
+aside {
+  margin-top: 24px;
+  font-size: 1.6rem;
+  line-height: 38px;
+}
+
+.sidebar__title {
+  padding: 6px 0;
+  line-height: 38px;
+  text-align: center;
+  color: #fff;
+  background: #bfa34c;
+}
+
+.sidebar__list {
+  background: #fff;
+}
+
+.sidebar__item {
+  padding: 8px 0 8px 26px;
+  line-height: 38px;
+  background: url(../img/arrow.png) no-repeat right 20px center;
+}
+
+.sidebar__item:hover {
+  opacity: 0.7;
+}
+
+.sidebar__item:not(:last-of-type) {
+  border-bottom: 1px solid #f3f3f3;
+}
+
 /* ******  ****** */
 /*==================================================
 
-
+*** footer
 ==================================================*/
-/* ******  ****** */
-/* ******  ****** */
-/* ******  ****** */
-/*==================================================
+footer {
+  position: relative;
+  margin-top: 116px;
+  padding: 37px 0 34px;
+  width: 100vw;
+  background: #ffffff;
+  overflow: hidden;
+}
 
+footer:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 120px;
+  width: 100%;
+  border-bottom: 1px solid #f3f3f3;
+}
 
-==================================================*/
-/* ******  ****** */
-/* ******  ****** */
+.page-top {
+  position: absolute;
+  top: -31px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page-top:hover {
+  transform: translate(-50%, -6px);
+  transition: translate 2s ease-out 0s;
+}
+
+/* ****** footer__top ****** */
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 470px;
+}
+
+.footer__logo img {
+  width: 131px;
+}
+
+address {
+  font-size: 1.2rem;
+  line-height: 20px;
+}
+
+/* ****** footer__bottom ****** */
+.footer__bottom {
+  margin: 38px auto 0;
+  padding-top: 24px;
+  width: 470px;
+}
+
+.footer__nav {
+  font-size: 1.3rem;
+}
+
+.footer__nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__nav__item {
+  line-height: 24px;
+}
+
+.footer__nav__item:hover {
+  opacity: 0.75;
+}
+
+.footer__nav__item:not(:last-of-type) {
+  padding-right: 34px;
+  background: url(../img/line.svg) no-repeat right center;
+}
+
+.copyright {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 24px;
+}
+
 /* ******  ****** */
 /*==================================================
 
