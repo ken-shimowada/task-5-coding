@@ -2,6 +2,7 @@
 
 /* 
 
+*** media queries
 *** common
 *** valiable
 
@@ -13,6 +14,34 @@
 *** footer
 
 */
+
+
+
+/*==================================================
+
+*** media queries
+==================================================*/
+
+$tab: 768px; 
+$sp: 480px;
+
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+    // @include tab{ /* < 768px */
+    // }
+
+    // @include sp{ /* < 480px */
+    // }
 
 
 /*==================================================
@@ -33,6 +62,15 @@ main{
     width: 1000px;
     margin: 0 auto;
     padding: 0 50px;
+
+    @include tab{ /* < 768px */ 
+        width: 88%;
+        padding: 0;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
+
 }
 
 
@@ -54,14 +92,89 @@ header
 ==================================================*/
 
 header{
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
+
+.header__top{
+    display: flex;
+    align-items: center;
+    margin: 20px 20px 0 auto;
+    // ⭐️.header__topを左寄せにする方法は他にあるか？
+}
+
+
+/* ****** burger-btn ****** */
+
+.burger-btn{
+    display: none;
+
+    @include tab{ /* < 768px */
+        display: block;
+        width: 39px;
+        height: 39px;
+        position: relative;
+        z-index: 3;
+    }
+}
+
+
+.bar{
+    width: 20px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+}
+
+.bar_top{
+    top: 10px;
+    transition: transform .4s;
+}
+.bar_mid{
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: opacity .4s;
+}
+.bar_bottom{
+    bottom: 10px;
+    transition: transform .4s;
+}
+.burger-btn.close .bar_top{
+    transform: translate(-50%,10px) rotate(45deg);
+    transition: transform .4s;
+    background-color: #333;
+}
+.burger-btn.close .bar_mid{
+    opacity: 0;
+    transition: opacity .4s;
+    background-color: #333;
+}
+.burger-btn.close .bar_bottom{
+    transform: translate(-50%,-8px) rotate(-45deg);
+    transition: transform .4s;
+    background-color: #333;
+}
+
 
 /* ****** btnarea ****** */
 
 .btnarea{
     display: flex;
     margin: 23px 30px 0 0;
+
+    @include tab{ /* < 768px */
+        margin: 8px 20px 0 0;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
+
+
+    
 }
 
 .btnarea__list{
@@ -74,14 +187,6 @@ header{
 .btnarea__item{
 
 }
-
-// .btnarea__item:not(:last-of-type){
-//     margin-right: 24px;
-// }
-
-// .btnarea__item > a{
-
-// }
 
 .btnarea__item i{
     color: $key;
@@ -106,7 +211,10 @@ header{
 .header__nav{
     margin-top: 37px;
     font-size: 1.6rem;
-    // line-height: 2.53;
+
+    @include tab{ /* < 768px */ 
+        display: none;
+    }
 }
 
 .header__nav__list{
@@ -250,10 +358,24 @@ header{
     justify-content: space-between;
     margin-top: 52px;
     overflow: hidden;
+
+    @include tab{ /* < 768px */ 
+        display: block;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 .main-content{
     width: 65%;
+
+    @include tab{ /* < 768px */ 
+        width: 100%;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 
@@ -281,19 +403,32 @@ opacity: 0.7;
 
 /* ****** article__img ****** */
 
-// .article__img{
+.article__img{
+    @include tab{ /* < 768px */
+        width: 50%;
+    }
 
-// }
+}
 
-// .article__img > img{
+.article__img > img{
+    @include tab{ /* < 768px */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-// }
+    // @include sp{ /* < 480px */
+    // }
+}
 
 
 /* ****** article__detail ****** */
 
 .article__detail{
     padding: 20px 25px 29px 30px  ;
+    @include tab{ /* < 768px */
+        width: 50%;
+    }
 }
 
 .article__detail__top{
@@ -310,15 +445,14 @@ opacity: 0.7;
     font-weight: 700;
     line-height: 38px;
     background: url(../img/icom-time.png) no-repeat left center/14px 14px;
-}
 
-// .article__detail__top > time:before{
-//     content: "";
-//     display: inline-block;
-//     width: 14px;
-//     height: 14px;
-//     background: url(../img/icon-facebook.svg) ;
-// }
+    @include tab{ /* < 768px */ 
+        font-size: 1.4rem;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
+}
 
 .categoly{
     display: flex;
@@ -330,6 +464,15 @@ opacity: 0.7;
     font-family: 'Quicksand', sans-serif;
     font-size: 1.4rem;
     background: $key;
+
+    @include tab{ /* < 768px */ 
+        width: 55px;
+        height: 22px;
+        font-size: 1.2rem;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 .article__title{
@@ -337,6 +480,11 @@ opacity: 0.7;
     font-size: 22px;
     font-weight: bold;
     list-style: 32px;
+
+    @include tab{ /* < 768px */
+        margin-top: 10px;
+        font-size: 1.6rem;
+    }
 }
 
 
@@ -348,13 +496,27 @@ opacity: 0.7;
 
 .side{
     width: 30%;
+
+    @include tab{ /* < 768px */ 
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 /* ****** banner ****** */
 
-// .banner{
+.banner{
+    @include tab{ /* < 768px */ 
+        display: flex;
+        justify-content: center;
+    }
 
-// }
+    // @include sp{ /* < 480px */
+    // }
+}
 
 // .banner > img{
 
@@ -428,16 +590,31 @@ footer{
     width: 100vw;
     background: #ffffff;
     overflow: hidden;
+
+    @include tab{ /* < 768px */ 
+        margin-top: 90px;
+    }
+
+    @include sp{ /* < 480px */
+        margin-top: 70px;
+    }
 }
 
 footer:after{
     content: "";
     display: block;
     position: absolute;
-    bottom: 120px;
+    top: 110px;
     width: 100%;
     border-bottom: 1px solid #f3f3f3;
     // ⭐️これ以外に実装方法はある？
+
+    @include tab{ /* < 768px */ 
+        top: 145px;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 .page-top{
@@ -445,6 +622,7 @@ footer:after{
     top: -31px;
 	left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
 }
 
 .page-top:hover{
@@ -460,6 +638,15 @@ footer:after{
     justify-content: space-between;
     margin: 0 auto;
     width: 470px;
+
+    @include tab{ /* < 768px */ 
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 // .footer__logo{
@@ -477,6 +664,13 @@ footer:after{
 address{
     font-size: 1.2rem;
     line-height: 20px;
+
+    @include tab{ /* < 768px */ 
+        margin-top: 10px;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 
@@ -485,20 +679,20 @@ address{
 /* ****** footer__bottom ****** */
 
 .footer__bottom{
-
-
     margin: 38px auto 0;
     padding-top: 24px;
     // border-top: 1px solid #f3f3f3;
     width: 470px;
-}
 
-// .footer__bottom:before{
-//     content: "";
-//     display: block;
-//     border-bottom: 1px solid #f3f3f3;
-//     width: 100vw;
-// }
+    @include tab{ /* < 768px */ 
+        margin-top: 26px;
+        width: 80%;
+        max-width: 470px;
+    }
+    @include sp{ /* < 480px */
+        margin-top: 20px;
+    }
+}
 
 .footer__nav{
     font-size: 1.3rem;
@@ -507,6 +701,14 @@ address{
 .footer__nav__list{
     display: flex;
     justify-content: space-between;
+
+    @include tab{ /* < 768px */ 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    // @include sp{ /* < 480px */
+    // }
 }
 
 .footer__nav__item{
