@@ -94,14 +94,68 @@ header
 header{
     display: flex;
     flex-direction: column;
+    padding: 28px 20px 30px;
     overflow: hidden;
+
+    @include tab{ /* < 768px */
+        padding: 20px 20px 20px;
+    }
 }
 
 .header__top{
     display: flex;
-    align-items: center;
-    margin: 20px 20px 0 auto;
+    flex-direction: column;
+    // margin: 28px 20px 0 0;
     // ⭐️.header__topを左寄せにする方法は他にあるか？
+
+    @include tab{ /* < 768px */
+        flex-direction: row-reverse;
+    }
+    // @include sp{ /* < 480px */
+    // }
+}
+
+
+
+/* ****** header__btn__container ****** */
+
+.header__btn__container{
+    margin-left: auto;
+
+    @include tab{ /* < 768px */ 
+        display: flex;
+    }
+}
+
+.btnarea{
+    display: flex;
+    margin-left: auto;
+
+    @include tab{ /* < 768px */
+        margin: 8px 10px 0 0;
+    }
+    // @include sp{ /* < 480px */
+    // }
+}
+
+.btnarea__list{
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    width: 100px;
+}
+
+// .btnarea__item{
+
+// }
+
+.btnarea__item i{
+    color: $key;
+    font-size: 1.4em;
+}
+
+.btnarea__item i:hover{
+    color: $black;
 }
 
 
@@ -118,7 +172,6 @@ header{
         z-index: 3;
     }
 }
-
 
 .bar{
     width: 20px;
@@ -160,51 +213,25 @@ header{
 }
 
 
-/* ****** btnarea ****** */
-
-.btnarea{
-    display: flex;
-    margin: 23px 30px 0 0;
-
-    @include tab{ /* < 768px */
-        margin: 8px 20px 0 0;
-    }
-
-    // @include sp{ /* < 480px */
-    // }
-
-
-    
-}
-
-.btnarea__list{
-    display: flex;
-    justify-content: space-between;
-    margin-left: auto;
-    width: 100px;
-}
-
-.btnarea__item{
-
-}
-
-.btnarea__item i{
-    color: $key;
-    font-size: 1.4em;
-}
-
-.btnarea__item i:hover{
-    color: $black;
-}
-
-
 /* ****** header-logo ****** */
 
 .header-logo{
     display: flex;
     justify-content: center;
     margin-top: 7px;
+
+    @include tab{ /* < 768px */ 
+        margin: 0;
+        width: 100px;
+    }
+    // @include sp{ /* < 480px */
+    // }
 }
+
+.header-logo img{
+    width: 100%;
+}
+
 
 /* ****** header__nav ****** */
 
@@ -262,7 +289,7 @@ header{
 // }
 
 .visual{
-    margin-top: 30px;
+    // margin-top: 30px;
 }
 
 .slider{
