@@ -418,23 +418,49 @@ header{
     margin-top: 27px;
 }
 
+.article-new{
+    position: relative;
+}
+
+.article-new::before{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 84px;
+    height: 78px;
+    background: url(../img/new.png);
+    z-index: 3;
+}
+
 .main-content__link{
     display: flex;
     justify-content: space-between;
+
+    // @include tab{ /* < 768px */ 
+    // }
+    @include sp{ /* < 480px */
+        display: block;
+    }
 }
 
 .main-content__link:hover{
-opacity: 0.7;
+    opacity: 0.7;
 }
 
 
 /* ****** article__img ****** */
 
 .article__img{
-    @include tab{ /* < 768px */
-        width: 50%;
-    }
+    // position: relative;
 
+    @include tab{ /* < 768px */
+        width: 48%;
+    }
+    @include sp{ /* < 480px */
+        width: 100%;
+    }
 }
 
 .article__img > img{
@@ -443,19 +469,29 @@ opacity: 0.7;
         height: 100%;
         object-fit: cover;
     }
-
-    // @include sp{ /* < 480px */
-    // }
 }
 
+// .article__img::before{
+//     content: "";
+//     display: inline-block;
+//     position: absolute;
+//     width: 84px;
+//     height: 78px;
+//     background: url(../img/new.png);
+// }
 
 /* ****** article__detail ****** */
 
 .article__detail{
-    padding: 20px 25px 29px 30px  ;
+    padding: 20px 25px 29px 30px ;
     @include tab{ /* < 768px */
-        width: 50%;
+        padding: 15px 20px 24px 20px ;
+        width: 52%;
     }
+    @include sp{ /* < 480px */
+        width: 100%;
+    }
+    // 
 }
 
 .article__detail__top{
@@ -733,9 +769,10 @@ address{
         flex-wrap: wrap;
         justify-content: center;
     }
-
-    // @include sp{ /* < 480px */
-    // }
+    @include sp{ /* < 480px */
+        display: block;
+        text-align: center;
+    }
 }
 
 .footer__nav__item{
@@ -749,7 +786,11 @@ address{
 .footer__nav__item:not(:last-of-type){
     padding-right: 34px;
     background: url(../img/line.svg) no-repeat right center;
-
+    @include sp{ /* < 480px */
+        background: none;
+        margin-bottom: 10px;
+        padding: 0;
+    }
 }
 
 // .footer__nav__item:not(:last-of-type):after{

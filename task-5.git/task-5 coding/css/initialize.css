@@ -28,6 +28,10 @@ body {
 	color: #1e0606;
 }
 
+*{
+	box-sizing: border-box;
+}
+
 
 /* 
 【Mac・Windows・iPhoneできれいに表示されるフォント】
